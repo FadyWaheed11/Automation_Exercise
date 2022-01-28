@@ -26,6 +26,10 @@ public class RegisterPage {
         return isVisible("//p[contains(.,'Your email or password is incorrect!')]");
     }
 
+    public boolean isRegisterErrorMessageVisible(){
+        return isVisible("//p[contains(.,'Email Address already exist!')]");
+    }
+
     public void enterUserName(String userName) {
         driver.findElement(namePath).sendKeys(userName);
     }
