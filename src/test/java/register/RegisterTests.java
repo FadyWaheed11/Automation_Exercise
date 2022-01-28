@@ -40,7 +40,7 @@ public class RegisterTests extends BaseTests {
         assertTrue(accountCreated.isAccountCreatedVisible(),"Account created is invisible");
         UserMainPage userMainPage = accountCreated.pressContinue();
         assertTrue(userMainPage.getUserName().contains("Fady Waheed"),"UserName is not found");
-        registerPage.logout();
+        userMainPage.logout();
     }
 
     @Test(priority = 2)
@@ -62,5 +62,17 @@ public class RegisterTests extends BaseTests {
         registerPage.enterPassword("44587522");
         registerPage.login();
         assertTrue(registerPage.isLoginErrorMessageVisible(),"Error message is invisible");
+    }
+
+    @Test
+    public void testLogOut(){
+        RegisterPage registerPage = homePage.clickOnRegisterPage();
+        assertTrue(registerPage.isLoginHeadLineVisible(),"Login to your account is invisible");
+        registerPage.enterEmailAddressLogin("fadywaheed10@gmail.com");
+        registerPage.enterPassword("12543680");
+        UserMainPage userMainPage = registerPage.login();
+        assertTrue(userMainPage.getUserName().contains("Fady Waheed"),"UserName is not found");
+        userMainPage.logout();
+        assertTrue(homePage.getCurrentPageUrl().endsWith("/login"),"Incorrect url page");
     }
 }

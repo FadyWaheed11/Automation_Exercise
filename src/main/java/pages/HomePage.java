@@ -11,4 +11,8 @@ public record HomePage(WebDriver driver) {
         driver.findElement(signUpLink).click();
         return new RegisterPage(driver);
     }
+
+    public String getCurrentPageUrl() {
+        return driver.getCurrentUrl();
+    }
 }

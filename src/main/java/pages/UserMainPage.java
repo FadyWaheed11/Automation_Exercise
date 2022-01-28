@@ -7,6 +7,7 @@ public class UserMainPage {
     private final WebDriver driver;
     private final By userNamePath = By.xpath("//a[contains(.,'Logged in')]");
     private final By deleteButtonPath = By.xpath("//a[@href='/delete_account']");
+    private final By logoutButtonPath = By.xpath("//a[@href='/logout']");
 
     public UserMainPage(WebDriver driver) {
         this.driver = driver;
@@ -18,5 +19,9 @@ public class UserMainPage {
 
     public void deleteAccount(){
         driver.findElement(deleteButtonPath).click();
+    }
+
+    public void logout() {
+        driver.findElement(logoutButtonPath).click();
     }
 }

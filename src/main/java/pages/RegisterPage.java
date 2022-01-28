@@ -9,7 +9,6 @@ public class RegisterPage {
     private final By passwordPath = By.name("password");
     private final By signUpButtonPath = By.xpath("//button[@data-qa='signup-button']");
     private final By loginButtonPath = By.xpath("//button[@data-qa='login-button']");
-    private final By logoutButtonPath = By.xpath("//a[@href='/logout']");
 
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
@@ -51,10 +50,6 @@ public class RegisterPage {
     public UserMainPage login() {
         driver.findElement(loginButtonPath).click();
         return new UserMainPage(driver);
-    }
-
-    public void logout() {
-        driver.findElement(logoutButtonPath).click();
     }
 
     private boolean isVisible(String path) {
