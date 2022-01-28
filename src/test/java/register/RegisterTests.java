@@ -53,4 +53,14 @@ public class RegisterTests extends BaseTests {
         assertTrue(userMainPage.getUserName().contains("Fady Waheed"),"UserName is not found");
         userMainPage.deleteAccount();
     }
+
+    @Test
+    public void testLoginWithIncorrectEmailAndPassword(){
+        RegisterPage registerPage = homePage.clickOnRegisterPage();
+        assertTrue(registerPage.isLoginHeadLineVisible(),"Login to your account is invisible");
+        registerPage.enterEmailAddressLogin("foh10@gmail.com");
+        registerPage.enterPassword("44587522");
+        registerPage.login();
+        assertTrue(registerPage.isLoginErrorMessageVisible(),"Error message is invisible");
+    }
 }

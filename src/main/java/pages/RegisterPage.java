@@ -1,4 +1,5 @@
 package pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -9,16 +10,21 @@ public class RegisterPage {
     private final By signUpButtonPath = By.xpath("//button[@data-qa='signup-button']");
     private final By loginButtonPath = By.xpath("//button[@data-qa='login-button']");
     private final By logoutButtonPath = By.xpath("//a[@href='/logout']");
+
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public boolean isSignUpHeadLineVisible() {
-        return isHeadLineVisible("//h2[contains(text(),'New User Signup!')]");
+        return isVisible("//h2[contains(text(),'New User Signup!')]");
     }
 
     public boolean isLoginHeadLineVisible() {
-        return isHeadLineVisible("//h2[contains(.,'Login to your account')]");
+        return isVisible("//h2[contains(.,'Login to your account')]");
+    }
+
+    public boolean isLoginErrorMessageVisible() {
+        return isVisible("//p[contains(.,'Your email or password is incorrect!')]");
     }
 
     public void enterUserName(String userName) {
@@ -26,14 +32,14 @@ public class RegisterPage {
     }
 
     public void enterEmailAddressSignUp(String email) {
-        enterEmailAddress("//input[@data-qa='signup-email']",email);
+        enterEmailAddress("//input[@data-qa='signup-email']", email);
     }
 
     public void enterEmailAddressLogin(String email) {
-        enterEmailAddress("//input[@data-qa='login-email']",email);
+        enterEmailAddress("//input[@data-qa='login-email']", email);
     }
 
-    public void enterPassword(String password){
+    public void enterPassword(String password) {
         driver.findElement(passwordPath).sendKeys(password);
     }
 
@@ -42,20 +48,20 @@ public class RegisterPage {
         return new SignUpPage(driver);
     }
 
-    public UserMainPage login(){
+    public UserMainPage login() {
         driver.findElement(loginButtonPath).click();
         return new UserMainPage(driver);
     }
 
-    public void logout(){
+    public void logout() {
         driver.findElement(logoutButtonPath).click();
     }
 
-    private boolean isHeadLineVisible(String path) {
+    private boolean isVisible(String path) {
         return driver.findElement(By.xpath(path)).isDisplayed();
     }
 
-    private void enterEmailAddress(String path , String email){
+    private void enterEmailAddress(String path, String email) {
         driver.findElement(By.xpath(path)).sendKeys(email);
     }
 }
