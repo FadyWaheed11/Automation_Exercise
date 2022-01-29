@@ -5,14 +5,21 @@ import org.openqa.selenium.WebDriver;
 
 public record HomePage(WebDriver driver) {
 
-    private static final By signUpLink = By.xpath("//a[@href='/login']");
-
     public RegisterPage clickOnRegisterPage() {
-        driver.findElement(signUpLink).click();
+        clickOnLink("//a[@href='/login']");
         return new RegisterPage(driver);
+    }
+
+    public ContactUsPage clickOnContactUsPage(){
+        clickOnLink("//a[@href='/contact_us']");
+        return new ContactUsPage(driver);
     }
 
     public String getCurrentPageUrl() {
         return driver.getCurrentUrl();
+    }
+
+    private void clickOnLink(String path){
+        driver.findElement(By.xpath(path)).click();
     }
 }

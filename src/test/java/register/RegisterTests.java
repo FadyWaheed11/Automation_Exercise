@@ -16,7 +16,7 @@ public class RegisterTests extends BaseTests {
         RegisterPage registerPage = homePage.clickOnRegisterPage();
         assertTrue(registerPage.isSignUpHeadLineVisible(), "New user signup is invisible");
         registerPage.enterUserName("Fady Waheed");
-        registerPage.enterEmailAddressSignUp("fa30@gmail.com");
+        registerPage.enterEmailAddressSignUp("fady147@gmail.com");
         SignUpPage signUpPage = registerPage.signUp();
         assertTrue(signUpPage.isBTextVisible(), "ENTER ACCOUNT INFORMATION is invisible");
         signUpPage.sendName("Fady");
@@ -47,7 +47,7 @@ public class RegisterTests extends BaseTests {
     @Test(priority = 2)
     public void testLoginWithValidEmailAndPassword() {
         RegisterPage registerPage = homePage.clickOnRegisterPage();
-        registerPage.enterEmailAddressLogin("fa30@gmail.com");
+        registerPage.enterEmailAddressLogin("fady147@gmail.com");
         registerPage.enterPassword("12543680");
         assertTrue(registerPage.isLoginHeadLineVisible(), "Login to your account is invisible");
         UserMainPage userMainPage = registerPage.login();
@@ -83,7 +83,7 @@ public class RegisterTests extends BaseTests {
         assertTrue(registerPage.isSignUpHeadLineVisible(), "New user signup is invisible");
         registerPage.enterUserName("Fady Waheed");
         registerPage.enterEmailAddressSignUp("fadywaheed10@gmail.com");
-        SignUpPage signUpPage = registerPage.signUp();
+        registerPage.signUp();
         assertTrue(registerPage.isRegisterErrorMessageVisible(),"Error message is invisible");
     }
 }
