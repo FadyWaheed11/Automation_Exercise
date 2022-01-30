@@ -17,7 +17,6 @@ public class BaseTests {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        //goHome();
         homePage = new HomePage(driver);
     }
 
