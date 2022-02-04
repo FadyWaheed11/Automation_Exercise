@@ -1,14 +1,16 @@
 package contact_us;
 
 import base.BaseTests;
+import ecommerce_project.pages.HomePage;
 import org.testng.annotations.Test;
-import pages.ContactUsPage;
+import ecommerce_project.pages.ContactUsPage;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class ContactUsTests extends BaseTests {
 
+    HomePage homePage = new HomePage();
     @Test
     public void testContactUsForm(){
         ContactUsPage contactUsPage = homePage.clickOnContactUsPage();

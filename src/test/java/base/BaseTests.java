@@ -1,32 +1,32 @@
 package base;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
-import pages.HomePage;
+import org.testng.annotations.BeforeSuite;
+
+import java.time.Duration;
+
+import static ecommerce_project.DriverFactory.getChromeDriver;
 
 public class BaseTests {
 
     private WebDriver driver;
-    protected HomePage homePage;
 
-    @BeforeClass
+    @BeforeSuite
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = getChromeDriver();
         driver.manage().window().maximize();
-        homePage = new HomePage(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @BeforeMethod
-    public void goHome(){
+    public void goHome() {
         driver.get("https://www.automationexercise.com/");
     }
 
-    @AfterClass
-    public void tearDown(){
+    @AfterSuite
+    public void tearDown() {
         driver.quit();
     }
 }

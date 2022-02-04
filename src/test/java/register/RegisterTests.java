@@ -1,15 +1,14 @@
 package register;
 
 import base.BaseTests;
+import ecommerce_project.pages.*;
 import org.testng.annotations.Test;
-import pages.AccountCreated;
-import pages.RegisterPage;
-import pages.SignUpPage;
-import pages.UserMainPage;
 
 import static org.testng.Assert.assertTrue;
 
 public class RegisterTests extends BaseTests {
+
+    HomePage homePage = new HomePage();
 
     @Test(priority = 1)
     public void testSignUp() throws InterruptedException {
@@ -84,6 +83,6 @@ public class RegisterTests extends BaseTests {
         registerPage.enterUserName("Fady Waheed");
         registerPage.enterEmailAddressSignUp("fadywaheed10@gmail.com");
         registerPage.signUp();
-        assertTrue(registerPage.isRegisterErrorMessageVisible(),"Error message is invisible");
+        assertTrue(registerPage.isRegisterErrorMessageVisible(), "Error message is invisible");
     }
 }

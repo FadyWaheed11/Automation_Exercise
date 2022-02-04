@@ -1,14 +1,16 @@
 package products;
 
 import base.BaseTests;
+import ecommerce_project.pages.HomePage;
 import org.testng.annotations.Test;
-import pages.DetailsPage;
-import pages.ProductsPage;
+import ecommerce_project.pages.DetailsPage;
+import ecommerce_project.pages.ProductsPage;
 
 import static org.testng.Assert.assertTrue;
 
 public class ProductsTests extends BaseTests {
 
+    HomePage homePage = new HomePage();
     @Test
     public void testProducts() {
         ProductsPage productsPage = homePage.clickOnProductsPage();
