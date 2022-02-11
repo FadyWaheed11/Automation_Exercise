@@ -17,90 +17,106 @@ public class SignUpPage {
         return driver.findElement(bPath).isDisplayed();
     }
 
-    public void sendName(String name) {
+    public SignUpPage sendName(String name) {
         sendData("name", name);
+        return this;
     }
 
-    public void sendPassword(String password) {
+    public SignUpPage sendPassword(String password) {
         sendData("password", password);
+        return this;
     }
 
-    public void sendFirstName(String firstName) {
+    public SignUpPage sendFirstName(String firstName) {
         sendData("first_name", firstName);
+        return this;
     }
 
-    public void sendLastName(String lastName){
-        sendData("last_name",lastName);
+    public SignUpPage sendLastName(String lastName) {
+        sendData("last_name", lastName);
+        return this;
     }
 
-    public void sendCompanyName(String companyName){
-        sendData("company",companyName);
+    public SignUpPage sendCompanyName(String companyName) {
+        sendData("company", companyName);
+        return this;
     }
 
-    public void sendAddress1(String address1){
-        sendData("address1",address1);
+    public SignUpPage sendAddress1(String address1) {
+        sendData("address1", address1);
+        return this;
     }
 
-    public void sendAddress2(String address2){
-        sendData("address2",address2);
+    public SignUpPage sendAddress2(String address2) {
+        sendData("address2", address2);
+        return this;
     }
 
-    public void sendState(String state){
-        sendData("state",state);
+    public SignUpPage sendState(String state) {
+        sendData("state", state);
+        return this;
     }
 
-    public void sendCity(String city){
-        sendData("city",city);
+    public SignUpPage sendCity(String city) {
+        sendData("city", city);
+        return this;
     }
 
-    public void sendZipCode(String zipCode){
-        sendData("zipcode",zipCode);
+    public SignUpPage sendZipCode(String zipCode) {
+        sendData("zipcode", zipCode);
+        return this;
     }
 
-    public void sendMobileNumber(String mobileNumber){
-        sendData("mobile_number",mobileNumber);
+    public SignUpPage sendMobileNumber(String mobileNumber) {
+        sendData("mobile_number", mobileNumber);
+        return this;
     }
 
     /**
      * @param day starts from 1 to 31
      */
-    public void selectDay(int day) {
+    public SignUpPage selectDay(int day) {
         findSelect("days").selectByIndex(day);
+        return this;
     }
 
     /**
      * @param month starts from 1 to 12
      */
-    public void selectMonth(int month) {
+    public SignUpPage selectMonth(int month) {
         findSelect("months").selectByIndex(month);
+        return this;
     }
 
     /**
      * @param year starts from 1900 to 2021
      */
-    public void selectYear(int year) {
+    public SignUpPage selectYear(int year) {
         String years = Integer.toString(year);
         findSelect("years").selectByVisibleText(years);
+        return this;
     }
 
     /**
-     *
      * @param countryName from this list [India,United States,Canada,
      *                    Australia,Israel,New Zealand,Singapore]
      */
-    public void selectCountry(String countryName){
+    public SignUpPage selectCountry(String countryName) {
         findSelect("country").selectByVisibleText(countryName);
+        return this;
     }
 
-    public void pressSignUpCheckBox() {
+    public SignUpPage pressSignUpCheckBox() {
         checkBox("newsletter");
+        return this;
     }
 
-    public void pressOffersCheckBox() {
+    public SignUpPage pressOffersCheckBox() {
         checkBox("optin");
+        return this;
     }
 
-    public AccountCreated createAccount(){
+    public AccountCreated createAccount() {
         driver.findElement(createAccountButtonPath).click();
         return new AccountCreated();
     }

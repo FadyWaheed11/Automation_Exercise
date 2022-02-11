@@ -29,30 +29,34 @@ public class RegisterPage {
         return isVisible("//p[contains(.,'Email Address already exist!')]");
     }
 
-    public void enterUserName(String userName) {
+    public RegisterPage enterUserName(String userName) {
         driver.findElement(namePath).sendKeys(userName);
+        return this;
     }
 
-    public void enterEmailAddressSignUp(String email) {
+    public RegisterPage enterEmailAddressSignUp(String email) {
         enterEmailAddress("//input[@data-qa='signup-email']", email);
+        return this;
     }
 
-    public void enterEmailAddressLogin(String email) {
+    public RegisterPage enterEmailAddressLogin(String email) {
         enterEmailAddress("//input[@data-qa='login-email']", email);
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public RegisterPage enterPassword(String password) {
         driver.findElement(passwordPath).sendKeys(password);
+        return this;
     }
 
     public SignUpPage signUp() {
         driver.findElement(signUpButtonPath).click();
-        return new SignUpPage(driver);
+        return new SignUpPage();
     }
 
     public UserMainPage login() {
         driver.findElement(loginButtonPath).click();
-        return new UserMainPage(driver);
+        return new UserMainPage();
     }
 
     private boolean isVisible(String path) {

@@ -16,6 +16,6 @@ public class AccountCreated {
 
     public UserMainPage pressContinue(){
         driver.findElement(continueButtonPath).click();
-        return new UserMainPage(driver);
+        return new UserMainPage();
     }
 }

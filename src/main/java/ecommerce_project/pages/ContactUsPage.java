@@ -17,24 +17,29 @@ public class ContactUsPage {
         return driver.findElement(titlePath).isDisplayed();
     }
 
-    public void enterName(String name) {
+    public ContactUsPage enterName(String name) {
         sendData("name", name);
+        return this;
     }
 
-    public void enterEmail(String email) {
+    public ContactUsPage enterEmail(String email) {
         sendData("email", email);
+        return this;
     }
 
-    public void enterSubject(String subject) {
+    public ContactUsPage enterSubject(String subject) {
         sendData("subject", subject);
+        return this;
     }
 
-    public void enterMessage(String message) {
+    public ContactUsPage enterMessage(String message) {
         sendData("message", message);
+        return this;
     }
 
-    public void uploadFile(String absoluteFilePath) {
+    public ContactUsPage uploadFile(String absoluteFilePath) {
         driver.findElement(uploadFilePath).sendKeys(absoluteFilePath);
+        return this;
     }
 
     public void submit() {
